@@ -1,0 +1,26 @@
+@import './layout.scss';
+body {
+    font-size: 20px;
+}
+
+/** 
+ * 测试压缩结果
+ */
+.test {
+    width: 200px;
+    height: 200px;
+    border: 1px solid red;
+    @include box-shadow(0 2px 2px rgba(0, 0, 0, .3), 0 3px 3px rgba(0, 0, 0, .3), 0 4px 4px rgba(0, 0, 0, .3));
+}
+
+.flex {
+    @include flex-box;
+}
+
+// 循环
+@for $i from 1 through 6 {
+    .flex-#{$i} {
+        @include flex($i);
+        @include border-box;
+    }
+}

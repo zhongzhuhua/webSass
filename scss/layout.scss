@@ -1,0 +1,45 @@
+// sass 
+// style nested，expanded，compact，compressed
+// sass index.scss index.css --style nested
+// 默认 nested 尾部 } 不换行
+// expanded 美化
+// compact 一个样式一行
+// compressed 压缩 
+@mixin prefix($k, $v) {
+    #{$k}: $v;
+    -webkit-#{$k}: $v;
+    -moz-#{$k}: $v;
+}
+
+@mixin prefixv($k, $v) {
+    #{$k}: $v;
+    #{$k}: -webkit-#{$v};
+    #{$k}: -moz-#{$v};
+}
+
+@mixin border-box {
+    @include prefix(box-sizing, border-box);
+}
+
+@mixin box-shadow($shadow...) {
+    @include prefix(box-shadow, $shadow);
+}
+
+@mixin user-select($t: none) {
+    -khtml-user-select: $t;
+    @include prefix(user-select, $t);
+}
+
+@mixin flex-box {
+    @include prefixv(display, box);
+    @include prefixv(display, flex);
+}
+
+@mixin flex($i: 1) {
+    display: block;
+    @include prefix(box-flex, $i);
+    @include prefix(flex, $i);
+}
+
+.layout {}
+
